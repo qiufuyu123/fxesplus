@@ -1,14 +1,4 @@
-A bunch of tools to work with CASIO calculators.
-
-The files should be self-explanatory.
-(either from the file name or the containing comments)
-
-Submodules:
-
-* `CasioEmu`: The disassembler and emulator. Necessary for some tools to work.
-
-See also:
-
-* https://github.com/user202729/U8DevTool - CD image of U8 development tools.
-Install this to work with `parse_obj.py` and some `wine_tools`. Not necessary
-for the emulator or the compiler.
+# fx-991cnx 逆向工程
+## 此仓库包含了fx-991cnx的真机ROM及其反编译程序  
+## 和一些工具链，以及部分符号、函数表
+## 请查看991cnx目录
