@@ -17,6 +17,8 @@ key_codes=[
     ['G','M','k','m','u','n','p','f',*['@']*8],
     [*['@']*16]
 ]
+
+tmp_uglyc=[]
 def byte2keys(b):
     if len(b) != 2:
         return '',False
@@ -35,5 +37,6 @@ def byte2keys(b):
         return '',False
     s = key_codes[y][x]
     if s == '@':
+        tmp_uglyc.append(str(b))
         return '<'+b+'>',True
     return key_codes[y][x],True

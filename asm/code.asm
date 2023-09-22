@@ -12,17 +12,22 @@
 ;mode 100+9+13an
 
 
-space 16  ; chars for love you 
-
 hex 6c 6f 76 65 20 79 6f 75 ; `love you`
-
+space 8
+;space 16
 home:
     pop qr0
-    hex 20 20 80 d1 30 30 30 30
+    hex 20 20 80 d1 30 30 30 30 
+    ;remember, we do not use label here to represent `love you`
+    ;since, stacks will be filled and broke by other functions
+    ;we use 0xd180 (input area rather than stack area)
     printline
     waitkey
     pop qr0
-    hex 20 20 74 d5 30 30 30 30
+    ; 74 d5
+    hex 20 20 
+    adr label2
+    hex 30 30 30 30
     printline
     waitkey
     pop qr0
@@ -31,5 +36,7 @@ home:
     pop ER14
     adr home -16
     jpop qr80   ;jump and pop qr8,pop qr0
-
-hex 46 6f 72 20 65 76 65 72  ; `Forever`
+label2:
+    hex 46 6f 72 20 65 76 65 72  ; `Forever`
+    ; here, since it locates at the end of stack
+    ; we do not care 

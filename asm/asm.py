@@ -8,11 +8,8 @@ Usage:
 
 base_addr = 0xd522
 syms = []
-debug =False
+debug =True
 showdump = print
-if not debug:
-    print = lambda a=0,b=0,c=0,d=0,e=0,f=0,g=0:0
-
 def loadsym():
     global syms
     with open('../991cnx/symbols.txt','r') as f:
@@ -99,14 +96,14 @@ def process(strs,fstpass=True):
             i = 0
             bin = ''
             while i < len(tokens):
-                if len(bin)<2 and not fstpass:
+                if len(bin)<2:
                     if tokens[i]!=' ':
                         bin+=tokens[i]
                         if len(bin) == 2:
                             #print('<'+bin+'>')
                             dump+=keys.byte2keys(bin)[0]+' '
                             bin = ''
-                            base_addr+=2
+                            base_addr+=1
                     
                 i+=1
             if len(bin)>0:
@@ -116,6 +113,9 @@ def process(strs,fstpass=True):
             s = line[:-1]
             syms.append([hex(base_addr),s,2])
         elif line.startswith('adr'):
+            if fstpass:
+                base_addr+=2
+                continue
             p = line[3:].strip().split(' ')
             if len(p) >2 or len(p) == 0:
                 print('Too many args for adr!')
@@ -131,7 +131,7 @@ def process(strs,fstpass=True):
             adr = adr.hex()
             dump += keys.byte2keys(adr[0:2])[0]+' '
             dump += keys.byte2keys(adr[2:4])[0]+' '
-
+            base_addr+=2
         elif len(line):
             if not fstpass:
                 name = nextstr(line)
