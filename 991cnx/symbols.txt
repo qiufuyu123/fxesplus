@@ -1,0 +1,61 @@
+; content here is used for assembler to work
+; MODIFY CAREFULLY!
+
+
+203C8       smart_strcpy
+203D6       smart_strcat
+@203B8       smart_strlen 
+
+$0821C       line_print_col0
+
+@221AC       printline 
+
+@086F8       render_e3d4
+@08704       render_ddd4
+
+@08FB8       memzero
+
+@1F99C       reset_routine
+
+29D5C       get_string_constant
+@07EAC       fill_screen
+$081A2       str_decompress_print
+221c4       waitkey
+
+@0916A       delay
+093FE       _start
+24E36       main
+
+@086E0       buf1_to_buf2
+
+@26226       byte_strlen
+
+@22040       diagnostic_mode
+@2209E       diagnostic
+
+
+@2A048       line_print__call__
+
+@082EC       char_print_1byte
+@082F6       char_print
+
+084D8       char_get_14
+
+085B8       char_get_l14
+0939A       zero_KO
+
+07F00       buffer_clear
+
+
+[GADGETS]
+
+130E2       pop QR0
+121a8       pop er0
+08f44       pop qr8
+20d72       pop ER14
+20d70       jpop er14
+12d34       jpop qr8
+2237a       jpop qr80
+222AC       nop
+09D22       ENTER
+13CD0       LEAVE
