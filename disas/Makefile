@@ -2,7 +2,7 @@
 
 CXX ?= g++
 RM  ?= rm -f
-CCFLAGS ?= -D_GLIBCXX_DEBUG -O2 -std=c++14 -Wall -Wextra -Werror -pedantic
+CCFLAGS ?= -D_GLIBCXX_DEBUG -O2 -std=c++14 -Wall -include cstdint -Wextra -Werror -pedantic
 
 _dummy := $(shell mkdir -p obj bin)
 
